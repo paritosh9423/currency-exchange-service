@@ -12,7 +12,7 @@ public class ExchangeValue {
 	@Id
 	private Long id;
 	@Column(name="currency_From")
-	private String form;
+	private String from;
 	private String to;
 	@Column(name="conversion_multiple")
 	private BigDecimal conversionMultiple;
@@ -31,10 +31,10 @@ public class ExchangeValue {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ExchangeValue(Long id, String form, String to, BigDecimal conversionMultiple) {
+	public ExchangeValue(Long id, String from, String to, BigDecimal conversionMultiple) {
 		super();
 		this.id = id;
-		this.form = form;
+		this.from = from;
 		this.to = to;
 		this.conversionMultiple = conversionMultiple;
 	}
@@ -47,12 +47,12 @@ public class ExchangeValue {
 		this.id = id;
 	}
 
-	public String getForm() {
-		return form;
+	public String getFrom() {
+		return from;
 	}
 
-	public void setForm(String form) {
-		this.form = form;
+	public void setFrom(String form) {
+		this.from = form;
 	}
 
 	public String getTo() {
