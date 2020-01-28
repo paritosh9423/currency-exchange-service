@@ -2,11 +2,19 @@ package com.paritosh.microservices.currencyexchangeservice.bean;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
 public class ExchangeValue {
-	
+	@Id
 	private Long id;
+	@Column(name="currency_From")
 	private String form;
 	private String to;
+	@Column(name="conversion_multiple")
 	private BigDecimal conversionMultiple;
 	private int port;
 	
