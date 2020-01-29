@@ -2,6 +2,7 @@ package com.paritosh.microservices.currencyexchangeservice.controller;
 
 import java.math.BigDecimal;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.EnvironmentCapable;
@@ -14,6 +15,7 @@ import com.paritosh.microservices.currencyexchangeservice.repository.ExchangeVal
 
 @RestController
 public class CurrencyExchangeController {
+	private org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	Environment env;
 	@Autowired
@@ -24,7 +26,7 @@ public class CurrencyExchangeController {
 		//ExchangeValue 	ev = new ExchangeValue(1000L, from, to, new BigDecimal("75"));
 		
 		ExchangeValue 	ev = evRepo.findByFromAndTo(from, to);
-		
+		logger.info("{}",ev);
 		ev.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 		return ev;
 	}
